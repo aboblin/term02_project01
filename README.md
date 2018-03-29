@@ -18,3 +18,6 @@ This visualization will allow users to observe immigration trends. It helps to g
 
 #### D3 Feature Utilization
 We need to be able to build a map in which countries will change color in response to migrants from the nation. We can have different shades of colors to represent greater immigration. Likewise we will need D3 to showcase the movement of dots from one country to the United States. We will be utilizing it for animation purposes. 
+
+#### Mockup
+![mockup png](mockup.png)
