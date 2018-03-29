@@ -3,8 +3,8 @@
 ### Team Members: Jonathan Quang, Henry Zheng, Edward Luo, Manahal Tabassum
 
 #### Data Set(s) Used
-2013 Yearbook of Immigration Statistics from the Office of Immigration Statistics
-http://metrocosm.com/wp-content/uploads/2016/05/usa-immigration-statistics-2013.pdf
+[2013 Yearbook of Immigration Statistics from the Office of Immigration Statistics](http://metrocosm.com/wp-content/uploads/2016/05/usa-immigration-statistics-2013.pdf)
+
 In this file, data regarding the number of people that have immigrated to the United States from the years of 1820 to 2013 by country is found. The table breaks down the years in increments of 10 and also gives a breakdown of immigration based on continent.
 
 #### How will we use this data?
