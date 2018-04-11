@@ -217,9 +217,12 @@
 
     <div class="slidecontainer">
       <input type="range" min="1820" max="2013" value="1820" class="slider" id="yearSlider">
+      <br>
+      <center>Year: <span id="year"></span></center>
     </div>
 
   </body>
-	<script type="text/javascript" src="{{url_for('static',filename='js/countries.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='js/countries.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static',filename='js/slider.js')}}"></script>
   
 </html>
