@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from utils.dots import *
+from flask.json import jsonify
 
 my_app = Flask(__name__)
 
@@ -7,9 +8,9 @@ my_app = Flask(__name__)
 def root():
     return render_template('svg.html')
 
-@my_app.route('/getData', methods = ['GET'])
+@my_app.route('/getData', methods = ['GET','POST'])
 def getData():
-    return makeDots()
+    return jsonify(makeDots(getCSV()))
 
 if __name__ == '__main__':
     my_app.debug = True

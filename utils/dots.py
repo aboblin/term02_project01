@@ -1,9 +1,8 @@
 import csv
 
-data = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
-dots = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
 
 def getCSV():
+    data = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
     with open('stats.csv') as csvfile:
         readCSV = csv.reader(csvfile, delimiter=',')
         for row in readCSV:
@@ -15,12 +14,14 @@ def getCSV():
                 #print data[i]
                 #print row[i]
                 data[i].append(row[i])
+    #print data
+    return data
 
-def makeDots(stuff):
-    getCSV()
+def makeDots(nums):
+    dots = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
     for i in range(24):
         #print data[i]
-        for x in data[i]:
+        for x in nums[i]:
             try:
                 y = int(x)
                 #print (int(x)/10000)
@@ -30,4 +31,10 @@ def makeDots(stuff):
                     dots[i].append(y/10000 + 1)
             except:
                 pass
-    return stuff
+    #print dots
+    return dots
+
+#makeDots(getCSV())
+def test(testList):
+    print testList
+    return testList

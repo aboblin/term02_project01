@@ -20,15 +20,15 @@ var colorCountry = function(countryName,theColor){
     
 };
 
-var getData= function(){
+var getData = function(){
     $.ajax({
-      url: "/getData",
+	url: "/getData",
 	type: "GET",
-	
-      success: function(d){
-      console.log(d);
-      }
-      });
+	data: {},
+	success: function(d){
+	    console.log(d);
+	}
+    });
     console.log("hello");
 };
 
