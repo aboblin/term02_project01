@@ -3,8 +3,12 @@
 <html>
 
   <head>
+    
     <title>Connect the Dots!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/slider.css') }}">
+
   </head>
   
   <body style="text-align: center;">
@@ -18,7 +22,7 @@
 
     <?xml version="1.0" encoding="utf-8"?>
     <!-- (c) ammap.com | SVG map of World - Low -->
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1000" height="1000" id="worldMap">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1000" height="666" id="worldMap">
       <defs>
 	<style type="text/css">
 	  .land
@@ -217,10 +221,15 @@
     </svg>
 
     <div class="slidecontainer">
-      <input type="range" min="1820" max="2013" value="1820" class="slider" id="yearSlider">
-      <br>
       <center>Year: <span id="year"></span></center>
+      <br>
+    
+      <input type="range" min="1820" max="2013" value="1820" class="slider" id="yearSlider">
     </div>
+
+    <br>
+    <br>
+    <br>
 
   </body>
   <script type="text/javascript" src="{{url_for('static',filename='js/countries.js')}}"></script>
