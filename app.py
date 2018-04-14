@@ -10,7 +10,11 @@ def root():
 
 @my_app.route('/getData', methods = ['GET','POST'])
 def getData():
-    return jsonify(makeDots(getCSV()))
+    data = getCSV()
+    ans = jsonify(dotdata = makeDots(data),
+                  countries = data[0])
+    #print ans
+    return ans
 
 if __name__ == '__main__':
     my_app.debug = True

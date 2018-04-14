@@ -1,6 +1,5 @@
 import csv
 
-
 def getCSV():
     data = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
     with open('stats.csv') as csvfile:
@@ -34,7 +33,8 @@ def makeDots(nums):
     #print dots
     return dots
 
+def getCountries():
+    print getCSV()[0]
+
 #makeDots(getCSV())
-def test(testList):
-    print testList
-    return testList
+#getCountries()
