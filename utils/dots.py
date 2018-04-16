@@ -16,6 +16,7 @@ def getCSV():
     #print data
     return data
 
+	
 def makeDots(nums):
     dots = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
     for i in range(24):
@@ -36,5 +37,33 @@ def makeDots(nums):
 def getCountries():
     print getCSV()[0]
 
+#helper for top5Countries
+def getMaxValueIndex(theArray):
+	currentMaxIndex = 0
+	currentMaxValue = 0
+	for i in range(len(theArray)):
+		if (int(theArray[i]) > currentMaxValue):
+			currentMaxIndex = i
+			currentMaxValue = int(theArray[i])
+	print currentMaxValue
+	print currentMaxIndex
+	return currentMaxIndex
+
+	
+#Array of arrays with 5 five countries
+def top5Countries():
+	countriesList = getCSV()[0]
+	countriesList = countriesList[1:len(countriesList)]
+	populationData = getCSV()[1:]
+	retArray = []
+	for i in range(1,len(populationData)):
+		countryArray=[]
+		for j in range(5):
+			maxIndex = getMaxValueIndex(populationData[i][1:])
+			countryArray.append([countriesList[maxIndex],populationData[i][maxIndex+1]])
+			populationData[i][maxIndex+1] = 0
+		retArray.append(countryArray)
+	return retArray
+	
 #makeDots(getCSV())
 #getCountries()

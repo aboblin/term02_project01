@@ -34,6 +34,18 @@ var getData = function(){
     //console.log("hello");
 };
 
+var getTopFiveList = function(){
+    $.ajax({
+	url: "/getTopFiveList",
+	type: "GET",
+	data: {},
+	success: function(d){
+	    console.log(d);
+	}
+    });
+    //console.log("hello");
+};
+
 var getIndex = function(year){
     /*
       subtract 1820
