@@ -19,7 +19,7 @@ def getData():
 @my_app.route('/getTopFiveList',methods = ['GET','Post'])
 def getTopFiveList():
 	data = top5Countries()
-	return jsonify(data)
+	return jsonify(results = data)
 
 if __name__ == '__main__':
     my_app.debug = True

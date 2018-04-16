@@ -45,8 +45,6 @@ def getMaxValueIndex(theArray):
 		if (int(theArray[i]) > currentMaxValue):
 			currentMaxIndex = i
 			currentMaxValue = int(theArray[i])
-	print currentMaxValue
-	print currentMaxIndex
 	return currentMaxIndex
 
 	
