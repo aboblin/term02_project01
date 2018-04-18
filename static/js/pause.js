@@ -1,5 +1,5 @@
 var pause = document.getElementById("pause");
-status = "pause"
+var status = "pause"
 
 var change = function() {
     
