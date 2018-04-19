@@ -7,6 +7,7 @@ var countryName = ["Austria","Hungary","Belgium","Bulgaria","Czechoslovakia","De
 var countryXCor = [515,529,488,545,517,501,547,482,505,536,453,511,491,500,523,530,452,545,601,465,498,470,522,760,824,697,628,572,864,577,833,816,582,814,575,778,259,189,257,277,273,258,226,240,225,222,233,237,248,290,294,330,272,270,256,310,317,265,319,318,293,558,584,448,460,541,852,951];
 var countryYCor = [312,314,299,331,303,271,233,313,293,342,286,331,290,242,227,290,342,318,261,338,314,288,322,354,329,396,368,372,354,372,353,414,359,396,345,427,304,396,402,409,408,412,415,435,425,420,421,427,440,572,511,492,577,453,466,448,535,494,451,560,441,386,438,445,369,551,533,603];
 var stats;
+var finalstats = [];
 var circles;
 
 var colorCountry = function(countryName,theColor){
@@ -34,10 +35,8 @@ var getData = function(){
 	success: function(d){
 	    dotsData = d.dotdata;
 	    countryNames = d.countries;
-	    console.log(d);
 	}
     });
-    //console.log("hello");
 };
 
 
@@ -60,33 +59,43 @@ var getIndex = function(year){
 
 var makeDotsFromData = function(year){
     stats = dotsData[getIndex(year)];
-    console.log(stats);
     for (var i = 0; i < stats.length; i++){
-	stats[i] = [stats[i], countryXCor[i], countryYCor[i]]
-	if (stats[i][0] == 0){
-	    stats.splice(i, 1);
-	}
-	console.log(stats[i]);
+	finalstats.push([stats[i], countryXCor[i], countryYCor[i]]);
     }
-
-    
-    //console.log(countryNames);
-    for (var i = 0; i < stats.length; i++){
-	//console.log("i = " + i);
-	circles = d3.select("svg").selectAll("circle").data(stats).enter();
-	console.log(stats[i]);
-	/*
-	for (var j = stats[i][0]; j > 0; j--){
-	    //console.log("j = " + j);
-	    circles.append("circle")
-		.attr("cx", stats[i][1])
-		.attr("cy", stats[i][2])
-		.attr("r", 5)
-	        .attr("id", j)
-		.attr("fill", "lightsteelblue");
+    //console.log(finalstats.toString());
+    for (var i = 0; i < finalstats.length; i++){
+	if (finalstats[i][0] == 0){
+	    finalstats.splice(i, 1);
+	    i-=1;
 	}
-	*/
     }
+    //console.log(finalstats.toString());
+    //*
+    circles = d3.select("svg").selectAll("circle").data(finalstats).enter();
+    //var test = finalstats.length
+    //while (finalstats.length >= 5){
+    //console.log(finalstats.toString());
+    while (finalstats.length > 0){
+	circles.append("circle")
+	    .attr("cx", function(d){return d[1]})
+	    .attr("cy", function(d){return d[2]})
+	    .attr("r", 5)
+	    .attr("id", function(d){return d[0]})
+	    .attr("fill", "lightsteelblue");
+	for (var i = 0; i < finalstats.length; i++){
+	    finalstats[i][0] -= 1;
+	    //console.log(finalstats[i]);
+	}
+	for (var i = 0; i < finalstats.length; i++){
+	    if (finalstats[i][0] == 0){
+		finalstats.splice(i, 1);
+		i-=1;
+	    }	    
+	}
+	circles.data(finalstats);
+	console.log(finalstats.toString());
+    }
+    //*/
 };
 
 var print = function(e){
