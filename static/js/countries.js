@@ -59,43 +59,26 @@ var getIndex = function(year){
 
 var makeDotsFromData = function(year){
     stats = dotsData[getIndex(year)];
+    //console.log(stats);
     for (var i = 0; i < stats.length; i++){
-	finalstats.push([stats[i], countryXCor[i], countryYCor[i]]);
-    }
-    //console.log(finalstats.toString());
-    for (var i = 0; i < finalstats.length; i++){
-	if (finalstats[i][0] == 0){
-	    finalstats.splice(i, 1);
-	    i-=1;
+	while (stats[i] > 0){
+	    finalstats.push([i, countryXCor[i], countryYCor[i]]);
+	    stats[i] -= 1;
 	}
     }
-    //console.log(finalstats.toString());
-    //*
+    //console.log(finalstats);
     circles = d3.select("svg").selectAll("circle").data(finalstats).enter();
-    //var test = finalstats.length
-    //while (finalstats.length >= 5){
-    //console.log(finalstats.toString());
-    while (finalstats.length > 0){
-	circles.append("circle")
-	    .attr("cx", function(d){return d[1]})
-	    .attr("cy", function(d){return d[2]})
-	    .attr("r", 5)
-	    .attr("id", function(d){return d[0]})
-	    .attr("fill", "lightsteelblue");
-	for (var i = 0; i < finalstats.length; i++){
-	    finalstats[i][0] -= 1;
-	    //console.log(finalstats[i]);
-	}
-	for (var i = 0; i < finalstats.length; i++){
-	    if (finalstats[i][0] == 0){
-		finalstats.splice(i, 1);
-		i-=1;
-	    }	    
-	}
-	circles.data(finalstats);
-	console.log(finalstats.toString());
-    }
-    //*/
+    var stuff = circles.append("circle")
+	.attr("cx", function(d){return d[1]})
+	.attr("cy", function(d){return d[2]})
+	.attr("r", 5)
+	.attr("fill", "lightsteelblue");
+    
+    d3.selectAll("circle").transition().duration(10000)
+	.delay(function(d,i){//console.log(d);console.log(100*i);
+			     return 100*i;})
+	.attr("cx", 200)
+	.attr("cy", 344);
 };
 
 var print = function(e){
