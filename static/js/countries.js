@@ -63,20 +63,29 @@ var makeDotsFromData = function(year){
     console.log(stats);
     for (var i = 0; i < stats.length; i++){
 	stats[i] = [stats[i], countryXCor[i], countryYCor[i]]
+	if (stats[i][0] == 0){
+	    stats.splice(i, 1);
+	}
 	console.log(stats[i]);
     }
+
+    
     //console.log(countryNames);
     for (var i = 0; i < stats.length; i++){
-	console.log("i = " + i);
+	//console.log("i = " + i);
 	circles = d3.select("svg").selectAll("circle").data(stats).enter();
+	console.log(stats[i]);
+	/*
 	for (var j = stats[i][0]; j > 0; j--){
-	    console.log("j = " + j);
-	    circles.insert("circle")
-		.attr("cx", function(d){return d[1]})
-		.attr("cy", function(d){return d[2]})
+	    //console.log("j = " + j);
+	    circles.append("circle")
+		.attr("cx", stats[i][1])
+		.attr("cy", stats[i][2])
 		.attr("r", 5)
+	        .attr("id", j)
 		.attr("fill", "lightsteelblue");
 	}
+	*/
     }
 };
 
