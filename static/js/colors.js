@@ -4,26 +4,6 @@ var countryColors = ["#ad132a","#fa940e","#edc332","#52b008","#1f6c07","#739fed"
 
 var info = getData();
 
-var colors = function(){
-    for (var i = 0; i < 10; i++){
-	var c = d3.selectAll(countryID[i]);
-	c.attr("color",1);
-    }
-    for (var i = 10; i < countryID.length; i++){
-	var c = d3.selectAll(countryID[i]);
-	c.attr("color",0);
-    }
-    for (var i = 0; i < countryID.length; i++){
-	var c = d3.selectAll(countryID[i]);
-	if (c.attr("color") == 1){
-	    c.style("fill","#7e416a");
-	}
-	else if (c.attr("color") == 0){
-	    c.style("fill","gray");
-	}
-    }
-}
-
 var setBaseColor = function(){
     for (var i = 0; i < countryID.length; i++){
 	var c = d3.selectAll(countryID[i]);
