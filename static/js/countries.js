@@ -1,6 +1,8 @@
 console.log('js loaded');
 var pathList = document.getElementById("pathList");
 var map = document.getElementById("worldMap");
+var slider = document.getElementById("yearSlider");
+var year = document.getElementById("yearValue");
 var dotsData = {};
 var countryNames = {};
 var countryName = ["Austria","Hungary","Belgium","Bulgaria","Czechoslovakia","Denmark","Finland","France","Germany","Greece","Ireland","Italy","Netherlands","Norway","Sweden","Poland","Portugal","Romania","Russia","Spain","Switzerland","United Kingdom","Yugoslavia","China","Hong Kong","India","Iran","Israel","Japan","Jordan","Korea","Philippines","Syria","Taiwan","Turkey","Vietnam","Canada","Mexico","Cuba","Dominican Republic","Haiti","Jamaica","Belize","Costa Rica","El Salvador","Guatemala","Honduras","Nicaragua","Panama","Argentina","Bolivia","Brazil","Chile","Colombia","Ecuador","Guyana","Paraguay","Peru","Suriname","Uruguay","Venezuela","Egypt","Ethiopia","Liberia","Morocco","South Africa","Australia","New Zealand"];
@@ -79,15 +81,14 @@ var makeDotsFromData = function(year){
 			     return 100*i;})
 	.attr("cx", 200)
 	.attr("cy", 344);
+    slider = document.getElementById("yearSlider");
+    slider.value = year;
+    yearValue.innerHTML = slider.value;
+    return year;
 };
 
-var print = function(e){
-    console.log(e.offsetX);
-    console.log(e.offsetY);
+yearValue.innerHTML = slider.value;
+
+slider.oninput = function() {
+    yearValue.innerHTML = this.value;
 };
-
-
-map.addEventListener("click",print);
-
-
-getData();
