@@ -41,7 +41,7 @@ var inputYearToIndex = function(yearNum){
 		workingYear = yearNum - 2010;
 		return workingYear + 18
 	}
-	console.log('hi')
+	
 }
 
 
@@ -49,7 +49,7 @@ var yearUpdate = function(){
 	
 	var update = function(){
 		var yearIndex = inputYearToIndex(parseInt(slider.innerHTML));
-		console.log(leaderBoardList['results'][yearIndex][0]);
+		
 		for (var i=1;i<=5;i++){
 			var subInString = leaderBoardList['results'][yearIndex][i-1];
 			lBoardElemArray[i-1].innerHTML=i.toString()+". " + subInString;
