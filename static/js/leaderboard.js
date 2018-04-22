@@ -29,7 +29,7 @@ getTopFiveList()
 console.log("leaderBoardLoaded");
 console.log(leaderBoardList)
 
-slider = document.getElementById("year");
+slider = document.getElementById("yearValue");
 
 var inputYearToIndex = function(yearNum){
 	if (yearNum < 2010){
@@ -58,3 +58,5 @@ var yearUpdate = function(){
 	}
 	setInterval(update,250);
 }
+
+yearUpdate()
