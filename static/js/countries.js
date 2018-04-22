@@ -60,6 +60,8 @@ var getIndex = function(year){
 };
 
 var makeDotsFromData = function(year){
+    d3.select("#yearSlider").attr("value", year);;
+    d3.select("#yearValue").html(year);
     stats = dotsData[getIndex(year)];
     //console.log(stats);
     for (var i = 0; i < stats.length; i++){
@@ -81,10 +83,12 @@ var makeDotsFromData = function(year){
 			     return 100*i;})
 	.attr("cx", 200)
 	.attr("cy", 344);
-    slider = document.getElementById("yearSlider");
-    slider.value = year;
-    yearValue.innerHTML = slider.value;
-    return year;
+    d3.select("#yearSlider").transition().duration(1000).attr( "value", year + 1 );
+    d3.select("#yearValue").html(year + 1);
+    console.log(d3.select("#yearSlider").attr('value'));
+    if( year < 2013 ) {
+	makeDotsFromData( year + 1 );
+    };
 };
 
 yearValue.innerHTML = slider.value;
