@@ -89,7 +89,7 @@ var makeDotsFromData = function(year){
     if (year < 2010){
 	d3.select("#yearValue")
 	    .transition()
-            .duration(10000)
+            .duration(17500)
             .on("start", function repeat() {
 		d3.active(this)
 	            .tween("text", function() {
@@ -103,7 +103,7 @@ var makeDotsFromData = function(year){
     else{
 	d3.select("#yearValue")
 	    .transition()
-            .duration(10000)
+            .duration(17500)
             .on("start", function repeat() {
 		d3.active(this)
 	            .tween("text", function() {
@@ -115,8 +115,10 @@ var makeDotsFromData = function(year){
 	//makeDotsFromData(year+1);
     }
     //d3.select("#yearSlider").transition().duration(10000).attr( "value", year + 10 );
-    var move = setInterval(function(){d3.select("#yearSlider").property("value", year = year+1);}, 1000);
-    setTimeout(function(){clearInterval(move);}, 10000);
+    //**ADD IN COLORS**
+    //setColors(year);
+    var move = setInterval(function(){d3.select("#yearSlider").property("value", year = year+1);}, 1750);
+    setTimeout(function(){clearInterval(move);}, 17500);
     /*
       console.log(d3.select("#yearSlider").attr('value'));
       if( year < 2013 ) {
@@ -132,7 +134,5 @@ slider.oninput = function() {
 };
 
 var intYear = 1810;
+setInterval(function(){makeDotsFromData(intYear = intYear+10);}, 10000);
 
-//*****FIX THIS. ONLY NEED TO AUTOMATE NOW*****
-//setInterval(makeDotsFromData(intYear = intYear+10), 10000);
-//setInterval(function(){makeDotsFromData(1830);}, 10000);
