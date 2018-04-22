@@ -135,4 +135,4 @@ var intYear = 1810;
 
 //*****FIX THIS. ONLY NEED TO AUTOMATE NOW*****
 //setInterval(makeDotsFromData(intYear = intYear+10), 10000);
-//setInterval(function(){makeDotsFromData(1830);), 10000);
+//setInterval(function(){makeDotsFromData(1830);}, 10000);
