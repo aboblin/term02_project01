@@ -60,8 +60,8 @@ var getIndex = function(year){
 };
 
 var makeDotsFromData = function(year){
-    d3.select("#yearSlider").attr("value", year);;
-    d3.select("#yearValue").html(year);
+    //d3.select("#yearSlider").attr("value", year);;
+    //d3.select("#yearValue").html(year);
     stats = dotsData[getIndex(year)];
     //console.log(stats);
     for (var i = 0; i < stats.length; i++){
@@ -83,12 +83,46 @@ var makeDotsFromData = function(year){
 			     return 100*i;})
 	.attr("cx", 200)
 	.attr("cy", 344);
-    d3.select("#yearSlider").transition().duration(1000).attr( "value", year + 1 );
-    d3.select("#yearValue").html(year + 1);
-    console.log(d3.select("#yearSlider").attr('value'));
-    if( year < 2013 ) {
-	makeDotsFromData( year + 1 );
-    };
+
+    var format = d3.format("d");
+
+    if (year < 2010){
+	d3.select("#yearValue")
+	    .transition()
+            .duration(10000)
+            .on("start", function repeat() {
+		d3.active(this)
+	            .tween("text", function() {
+			var that = d3.select(this),
+			    i = d3.interpolateNumber(that.text().replace(/,/g, ""), year + 10);
+			return function(t) { that.text(format(i(t))); };
+		    })
+	    });
+	//makeDotsFromData( year + 10 );
+    }
+    else{
+	d3.select("#yearValue")
+	    .transition()
+            .duration(10000)
+            .on("start", function repeat() {
+		d3.active(this)
+	            .tween("text", function() {
+			var that = d3.select(this),
+			    i = d3.interpolateNumber(that.text().replace(/,/g, ""), year + 1);
+			return function(t) { that.text(format(i(t))); };
+		    })
+	    });
+	//makeDotsFromData(year+1);
+    }
+    //d3.select("#yearSlider").transition().duration(10000).attr( "value", year + 10 );
+    var move = setInterval(function(){d3.select("#yearSlider").property("value", year = year+1);}, 1000);
+    setTimeout(function(){clearInterval(move);}, 10000);
+    /*
+      console.log(d3.select("#yearSlider").attr('value'));
+      if( year < 2013 ) {
+	  makeDotsFromData( year + 10 );
+      };
+    */
 };
 
 yearValue.innerHTML = slider.value;
@@ -96,3 +130,9 @@ yearValue.innerHTML = slider.value;
 slider.oninput = function() {
     yearValue.innerHTML = this.value;
 };
+
+var intYear = 1810;
+
+//*****FIX THIS. ONLY NEED TO AUTOMATE NOW*****
+//setInterval(makeDotsFromData(intYear = intYear+10), 10000);
+//setInterval(function(){makeDotsFromData(1830);), 10000);
