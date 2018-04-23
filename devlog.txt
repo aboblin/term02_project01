@@ -77,6 +77,9 @@ got dots transition to work
 manahalT -- 2018-04-20 22:18:28
 worked on color transitions between years
 
+luoE --  2018-04-21 20:04:39
+worked on automated slider transition effect
+
 henryZ -- 2018-04-22 02:10:22
 year and bar automation now works
 
