@@ -5,7 +5,7 @@
 #### Data Set(s) Used
 [2013 Yearbook of Immigration Statistics from the Office of Immigration Statistics](http://metrocosm.com/wp-content/uploads/2016/05/usa-immigration-statistics-2013.pdf)
 
-In this file, data regarding the number of people that have immigrated to the United States from the years of 1820 to 2013 by country is found. The table breaks down the years in increments of 10 and also gives a breakdown of immigration based on continent.
+In this file, data regarding the number of people that have immigrated to the United States from the years of 1820 to 2013 by country is found. The table breaks down the years in increments of 10 and also gives a breakdown of immigration based on continent. We manually typed the data from table 2 into a CSV file that we then parsed through and used.
 
 #### How will we use this data?
 We will be creating a map which showcases immigration to the US from 1820 to 2013. Using circles that represent a certain amount of people, we will show them traveling from the origin country to the United States. The background of the site will be a map of the world. By doing this, users will able to see immigration trends into the US in terms of various countries. 
@@ -21,3 +21,6 @@ We need to be able to build a map in which countries will change color in respon
 
 #### Mockup
 ![mockup png](mockup.png)
+
+#### What we are aiming for:
+http://metrocosm.com/us-immigration-history-map.html?ref=producthunt
