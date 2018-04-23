@@ -83,3 +83,6 @@ year and bar automation now works
 henryZ -- 2018-04-22 14:12:34
 worked on automation across years
 
+manahalT -- 2018-04-22 21:51:52
+added in coloration with animation
+

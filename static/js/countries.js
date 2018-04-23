@@ -62,6 +62,7 @@ var getIndex = function(year){
 var makeDotsFromData = function(year){
     //d3.select("#yearSlider").attr("value", year);;
     //d3.select("#yearValue").html(year);
+    setColors(year);
     stats = dotsData[getIndex(year)];
     //console.log(stats);
     for (var i = 0; i < stats.length; i++){
