@@ -135,5 +135,5 @@ slider.oninput = function() {
 };
 
 var intYear = 1810;
-setInterval(function(){makeDotsFromData(intYear = intYear+10);}, 10000);
+setInterval(function(){makeDotsFromData(intYear = intYear+10);}, 17500);
 

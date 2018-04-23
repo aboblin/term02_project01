@@ -60,11 +60,11 @@ var setColors = function(year){
 	console.log(c.attr("color"));
 	if (c.attr("color") == 1){
 	    if (stats[i] >= median){
-		c.transition().duration(5000).style("fill-opacity",0.5).style("fill",countryColors[col]);
+		c.transition().duration(10000).style("fill-opacity",0.5).style("fill",countryColors[col]);
 	    }
 	    else{
 		var op = (((stats[i] / max)/2)+0.5);
-		c.transition().duration(5000).style("fill-opacity",op).style("fill",countryColors[col]);
+		c.transition().duration(10000).style("fill-opacity",op).style("fill",countryColors[col]);
 	    }
 	}
 	else{
